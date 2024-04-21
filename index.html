@@ -1,176 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Love Names</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: pink; /* Love background color */
-            overflow: hidden; /* Hide overflow to prevent scroll */
-            position: relative; /* Relative positioning for sparkles */
-        }
+<!-- Click Here Link -->
+<a href="#" id="clickLink" style="position: fixed; top: 10px; right: 10px; z-index: 1001; font-size: 24px; background-color: white; padding: 10px; border-radius: 10px;">Click here 💌</a>
 
-        .love-names {
-            font-size: 100px; /* Increased font size for names */
-            font-weight: bold;
-            text-align: center;
-            color: white;
-            text-shadow: 4px 4px 8px black; /* Shadow for text */
-            animation: beatHeart 1s infinite alternate, blinkText 2s infinite; /* Heartbeat and blink animations */
-            z-index: 1; /* Ensure names are above sparkles */
-            border: 10px solid gold; /* Gold border around names */
-            padding: 20px; /* Padding around names */
-        }
+<!-- Love Names -->
+<div class="love-names">
+    Satish<br>
+    ❤️<br>
+    Naveena
+</div>
 
-        .heart {
-            font-size: 100px; /* Increased font size for hearts */
-            position: absolute; /* Absolute positioning for hearts */
-            opacity: 0.7; /* Reduced opacity for a softer look */
-        }
-
-        .sparkle {
-            position: absolute; /* Absolute positioning for sparkles */
-            width: 8px;
-            height: 8px;
-            background-color: #fff; /* Sparkle color */
-            animation: sparkleShine 1s infinite; /* Sparkle animation */
-        }
-
-        .flower {
-            position: absolute; /* Absolute positioning for flowers */
-            font-size: 60px; /* Increased size for flowers */
-            animation: flowerFall 7s linear infinite; /* Flower animations */
-        }
-
-        .leaf {
-            position: absolute; /* Absolute positioning for leaves */
-            font-size: 40px; /* Increased size for leaves */
-            animation: leafFall 7s linear infinite; /* Leaf animation */
-        }
-
-        @keyframes beatHeart {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
-        }
-
-        @keyframes blinkText {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        @keyframes sparkleShine {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @keyframes flowerFall {
-            0% {
-                top: -10%;
-                left: 50%;
-                transform: rotate(0deg);
-            }
-            100% {
-                top: 110%;
-                left: calc(100vw * Math.random());
-                transform: rotate(720deg);
-            }
-        }
-
-        @keyframes leafFall {
-            0% {
-                top: -10%;
-                left: 50%;
-                transform: rotate(0deg);
-            }
-            100% {
-                top: 110%;
-                left: calc(100vw * Math.random());
-                transform: rotate(720deg);
-            }
-        }
-    </style>
-</head>
-<body>
-    <!-- Sparkles -->
-    <script>
-        function createSparkles() {
-            const sparkles = 200;
-            for (let i = 0; i < sparkles; i++) {
-                const sparkle = document.createElement('div');
-                sparkle.className = 'sparkle';
-                sparkle.style.top = `${Math.random() * 100}%`;
-                sparkle.style.left = `${Math.random() * 100}%`;
-                document.body.appendChild(sparkle);
-            }
-        }
-        createSparkles();
-    </script>
-
-    <!-- Falling Flowers -->
-    <script>
-        function createFlowers() {
-            const flowers = 50; // Reduced number of flowers
-            for (let i = 0; i < flowers; i++) {
-                setTimeout(() => {
-                    const flower = document.createElement('div');
-                    flower.className = 'flower';
-                    flower.innerHTML = '🌺';
-                    flower.style.top = `${-Math.random() * 100}%`;
-                    flower.style.left = `${Math.random() * 100}%`;
-                    document.body.appendChild(flower);
-                }, Math.random() * 10000); // Random delay up to 10 seconds
-            }
-        }
-        createFlowers();
-    </script>
-
-    <!-- Falling Leaves -->
-    <script>
-        function createLeaves() {
-            const leaves = 50; // Reduced number of leaves
-            const leafTypes = ['🍃', '🍁', '🍂'];
-            for (let i = 0; i < leaves; i++) {
-                setTimeout(() => {
-                    const leaf = document.createElement('div');
-                    leaf.className = 'leaf';
-                    leaf.innerHTML = leafTypes[Math.floor(Math.random() * leafTypes.length)];
-                    leaf.style.top = `${-Math.random() * 100}%`;
-                    leaf.style.left = `${Math.random() * 100}%`;
-                    document.body.appendChild(leaf);
-                }, Math.random() * 10000); // Random delay up to 10 seconds
-            }
-        }
-        createLeaves();
-    </script>
-
-    <!-- Heart Symbols -->
-    <div class="heart" style="top: 10%; left: 20%;">❤️</div>
-    <div class="heart" style="top: 20%; left: 50%;">❤️</div>
-    <div class="heart" style="top: 30%; left: 80%;">❤️</div>
-
-    <a href="click_here.html" style="position: fixed; top: 10px; right: 10px; z-index: 1001; font-size: 24px; background-color: white; padding: 10px; border-radius: 10px;">Click here 💌</a>
-
-    <!-- Love Names -->
-    <div class="love-names">
-        Satish<br>
-        ❤️<br>
-        Naveena
-    </div>
-</body>
-</html>
+<script>
+    // JavaScript to redirect to index.html when the link is clicked
+    document.getElementById("clickLink").addEventListener("click", function(event) {
+        event.preventDefault(); // Prevent default link behavior
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 2000); // Redirect to index.html after 2 seconds
+    });
+</script>
