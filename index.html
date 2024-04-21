@@ -32,8 +32,8 @@
 
         .sparkle {
             position: absolute; /* Absolute positioning for sparkles */
-            width: 4px;
-            height: 4px;
+            width: 8px;
+            height: 8px;
             background-color: #fff; /* Sparkle color */
             animation: sparkleShine 1s infinite; /* Sparkle animation */
         }
@@ -43,7 +43,7 @@
             width: 30px;
             height: 30px;
             background-color: #ff69b4; /* Flower color */
-            animation: flowerFall 5s linear infinite, flowerRotate 3s linear infinite; /* Flower animations */
+            animation: flowerFall 5s linear infinite; /* Flower animations */
             border-radius: 50%; /* Rounded shape for flowers */
         }
 
@@ -94,15 +94,6 @@
             }
         }
 
-        @keyframes flowerRotate {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
         @keyframes leafFall {
             0% {
                 top: -10%;
@@ -138,7 +129,7 @@
             for (let i = 0; i < flowers; i++) {
                 const flower = document.createElement('div');
                 flower.className = 'flower';
-                flower.style.top = `${Math.random() * 100}%`;
+                flower.style.top = `${-Math.random() * 100}%`;
                 flower.style.left = `${Math.random() * 100}%`;
                 document.body.appendChild(flower);
             }
@@ -153,7 +144,7 @@
             for (let i = 0; i < leaves; i++) {
                 const leaf = document.createElement('div');
                 leaf.className = 'leaf';
-                leaf.style.top = `${Math.random() * 100}%`;
+                leaf.style.top = `${-Math.random() * 100}%`;
                 leaf.style.left = `${Math.random() * 100}%`;
                 document.body.appendChild(leaf);
             }
