@@ -15,14 +15,14 @@
         }
 
         .love-names {
-            font-size: 80px; /* Increased font size for names */
+            font-size: 100px; /* Increased font size for names */
             font-weight: bold;
             text-align: center;
             color: white;
             text-shadow: 4px 4px 8px black; /* Shadow for text */
             animation: beatHeart 1s infinite alternate, blinkText 2s infinite; /* Heartbeat and blink animations */
             z-index: 1; /* Ensure names are above sparkles */
-            border: 5px solid gold; /* Gold border around names */
+            border: 10px solid gold; /* Gold border around names */
             padding: 20px; /* Padding around names */
         }
 
@@ -149,4 +149,26 @@
                 setTimeout(() => {
                     const leaf = document.createElement('div');
                     leaf.className = 'leaf';
-                    leaf.innerHTML = leafTypes[Math.floor(Math.random
+                    leaf.innerHTML = leafTypes[Math.floor(Math.random() * leafTypes.length)];
+                    leaf.style.top = `${-Math.random() * 100}%`;
+                    leaf.style.left = `${Math.random() * 100}%`;
+                    document.body.appendChild(leaf);
+                }, Math.random() * 5000); // Random delay up to 5 seconds
+            }
+        }
+        createLeaves();
+    </script>
+
+    <!-- Heart Symbols -->
+    <div class="heart" style="top: 10%; left: 20%;">❤️</div>
+    <div class="heart" style="top: 20%; left: 50%;">❤️</div>
+    <div class="heart" style="top: 30%; left: 80%;">❤️</div>
+
+    <!-- Love Names -->
+    <div class="love-names">
+        Satish<br>
+        ❤️<br>
+        Naveena
+    </div>
+</body>
+</html>
