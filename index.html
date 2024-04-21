@@ -13,46 +13,102 @@
         }
 
         .love-names {
-            font-size: 36px; /* Increased font size for names */
+            font-size: 60px; /* Huge font size for names */
             font-weight: bold;
             text-align: center;
             color: white;
-            text-shadow: 2px 2px 4px black; /* Shadow for text */
+            text-shadow: 4px 4px 8px black; /* Shadow for text */
             animation: rotateNames 5s linear infinite; /* Rotate animation for names */
+            position: relative; /* Relative positioning for sparkles and flowers */
         }
 
         .heart {
-            font-size: 60px; /* Increased font size for hearts */
+            font-size: 100px; /* Increased font size for hearts */
             animation: blink 1s infinite alternate; /* Blink animation for hearts */
+            position: absolute; /* Absolute positioning for hearts */
+            opacity: 0.7; /* Reduced opacity for a softer look */
+        }
+
+        .sparkle {
+            position: absolute; /* Absolute positioning for sparkles */
+            width: 10px;
+            height: 10px;
+            background-color: gold; /* Sparkle color */
+            animation: sparkleFall 2s infinite; /* Sparkle animation */
+        }
+
+        .flower {
+            position: absolute; /* Absolute positioning for flowers */
+            width: 30px;
+            height: 30px;
+            background-color: #ff69b4; /* Flower color */
+            animation: flowerFall 3s infinite; /* Flower animation */
         }
 
         @keyframes blink {
-            0% {
-                opacity: 0;
+            0%, 100% {
+                opacity: 0.7;
             }
-            100% {
+            50% {
                 opacity: 1;
             }
         }
 
         @keyframes rotateNames {
             0% {
-                transform: rotate(0deg);
+                transform: perspective(1200px) rotateX(0deg);
             }
             100% {
-                transform: rotate(360deg);
+                transform: perspective(1200px) rotateX(360deg);
+            }
+        }
+
+        @keyframes sparkleFall {
+            0% {
+                top: -10%;
+                left: 50%;
+            }
+            100% {
+                top: 110%;
+                left: 50%;
+            }
+        }
+
+        @keyframes flowerFall {
+            0% {
+                top: -30%;
+                left: 70%;
+            }
+            100% {
+                top: 130%;
+                left: 70%;
             }
         }
     </style>
 </head>
 <body>
     <!-- Heart Symbols -->
-    <div class="heart" style="position: absolute; top: 10%; left: 20%;">❤️</div>
-    <div class="heart" style="position: absolute; top: 20%; left: 50%;">❤️</div>
-    <div class="heart" style="position: absolute; top: 30%; left: 80%;">❤️</div>
+    <div class="heart" style="top: 10%; left: 20%;">❤️</div>
+    <div class="heart" style="top: 20%; left: 50%;">❤️</div>
+    <div class="heart" style="top: 30%; left: 80%;">❤️</div>
+
+    <!-- Sparkles -->
+    <div class="sparkle" style="left: 10%;"></div>
+    <div class="sparkle" style="left: 30%;"></div>
+    <div class="sparkle" style="left: 50%;"></div>
+    <div class="sparkle" style="left: 70%;"></div>
+    <div class="sparkle" style="left: 90%;"></div>
+
+    <!-- Flowers -->
+    <div class="flower" style="left: 15%;"></div>
+    <div class="flower" style="left: 35%;"></div>
+    <div class="flower" style="left: 55%;"></div>
+    <div class="flower" style="left: 75%;"></div>
+    <div class="flower" style="left: 95%;"></div>
+
     <!-- Love Names -->
     <div class="love-names">
-        Satish & Naveena
+        Satish<br>❤️<br>Naveena
     </div>
 </body>
 </html>
