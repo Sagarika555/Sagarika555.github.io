@@ -43,13 +43,13 @@
         .flower {
             position: absolute; /* Absolute positioning for flowers */
             font-size: 60px; /* Increased size for flowers */
-            animation: flowerFall 5s linear infinite; /* Flower animations */
+            animation: flowerFall 7s linear infinite; /* Flower animations */
         }
 
         .leaf {
             position: absolute; /* Absolute positioning for leaves */
             font-size: 40px; /* Increased size for leaves */
-            animation: leafFall 5s linear infinite; /* Leaf animation */
+            animation: leafFall 7s linear infinite; /* Leaf animation */
         }
 
         @keyframes beatHeart {
@@ -125,7 +125,7 @@
     <!-- Falling Flowers -->
     <script>
         function createFlowers() {
-            const flowers = 100;
+            const flowers = 50; // Reduced number of flowers
             for (let i = 0; i < flowers; i++) {
                 setTimeout(() => {
                     const flower = document.createElement('div');
@@ -134,7 +134,7 @@
                     flower.style.top = `${-Math.random() * 100}%`;
                     flower.style.left = `${Math.random() * 100}%`;
                     document.body.appendChild(flower);
-                }, Math.random() * 5000); // Random delay up to 5 seconds
+                }, Math.random() * 10000); // Random delay up to 10 seconds
             }
         }
         createFlowers();
@@ -143,7 +143,7 @@
     <!-- Falling Leaves -->
     <script>
         function createLeaves() {
-            const leaves = 100;
+            const leaves = 50; // Reduced number of leaves
             const leafTypes = ['🍃', '🍁', '🍂'];
             for (let i = 0; i < leaves; i++) {
                 setTimeout(() => {
@@ -153,7 +153,7 @@
                     leaf.style.top = `${-Math.random() * 100}%`;
                     leaf.style.left = `${Math.random() * 100}%`;
                     document.body.appendChild(leaf);
-                }, Math.random() * 5000); // Random delay up to 5 seconds
+                }, Math.random() * 10000); // Random delay up to 10 seconds
             }
         }
         createLeaves();
