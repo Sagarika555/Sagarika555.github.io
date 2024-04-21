@@ -19,11 +19,30 @@
             color: white;
             text-shadow: 2px 2px 4px black; /* Shadow for text */
         }
+
+        .heart {
+            position: absolute;
+            animation: blink 1s infinite alternate;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="love-names">
         Satish & Naveena
     </div>
+    <!-- Heart Symbols -->
+    <div class="heart" style="top: 10%; left: 20%;">❤️</div>
+    <div class="heart" style="top: 20%; left: 50%;">❤️</div>
+    <div class="heart" style="top: 30%; left: 80%;">❤️</div>
+    <!-- Add more hearts as needed -->
 </body>
 </html>
