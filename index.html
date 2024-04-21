@@ -11,6 +11,7 @@
             height: 100vh;
             background-color: pink; /* Love background color */
             overflow: hidden; /* Hide overflow to prevent scroll */
+            position: relative; /* Relative positioning for sparkles */
         }
 
         .love-names {
@@ -19,13 +20,12 @@
             text-align: center;
             color: white;
             text-shadow: 4px 4px 8px black; /* Shadow for text */
-            animation: rotateNames 5s linear infinite; /* Rotate animation for names */
-            position: relative; /* Relative positioning for roses and sparkles */
+            animation: beatHeart 1s infinite alternate, blinkText 2s infinite; /* Heartbeat and blink animations */
+            z-index: 1; /* Ensure names are above sparkles */
         }
 
         .heart {
             font-size: 100px; /* Increased font size for hearts */
-            animation: beatHeart 1s infinite alternate; /* Heartbeat animation for hearts */
             position: absolute; /* Absolute positioning for hearts */
             opacity: 0.7; /* Reduced opacity for a softer look */
         }
@@ -38,13 +38,13 @@
             animation: sparkleShine 1s infinite; /* Sparkle animation */
         }
 
-        .rose {
-            position: absolute; /* Absolute positioning for roses */
+        .flower {
+            position: absolute; /* Absolute positioning for flowers */
             width: 30px;
             height: 30px;
-            background-color: #ff69b4; /* Rose color */
-            animation: roseFall 5s linear infinite, roseRotate 3s linear infinite; /* Rose animations */
-            border-radius: 50%; /* Rounded shape for roses */
+            background-color: #ff69b4; /* Flower color */
+            animation: flowerFall 5s linear infinite, flowerRotate 3s linear infinite; /* Flower animations */
+            border-radius: 50%; /* Rounded shape for flowers */
         }
 
         .leaf {
@@ -65,12 +65,12 @@
             }
         }
 
-        @keyframes rotateNames {
-            0% {
-                transform: perspective(1200px) rotateX(0deg);
+        @keyframes blinkText {
+            0%, 100% {
+                opacity: 1;
             }
-            100% {
-                transform: perspective(1200px) rotateX(360deg);
+            50% {
+                opacity: 0.5;
             }
         }
 
@@ -83,7 +83,7 @@
             }
         }
 
-        @keyframes roseFall {
+        @keyframes flowerFall {
             0% {
                 top: -10%;
                 left: 50%;
@@ -94,7 +94,7 @@
             }
         }
 
-        @keyframes roseRotate {
+        @keyframes flowerRotate {
             0% {
                 transform: rotate(0deg);
             }
@@ -116,17 +116,50 @@
     </style>
 </head>
 <body>
-    <!-- Falling Roses with Leaves -->
-    <div class="rose" style="left: 10%;"></div>
-    <div class="rose" style="left: 30%;"></div>
-    <div class="rose" style="left: 50%;"></div>
-    <!-- Add more roses as needed -->
+    <!-- Sparkles -->
+    <script>
+        function createSparkles() {
+            const sparkles = 200;
+            for (let i = 0; i < sparkles; i++) {
+                const sparkle = document.createElement('div');
+                sparkle.className = 'sparkle';
+                sparkle.style.top = `${Math.random() * 100}%`;
+                sparkle.style.left = `${Math.random() * 100}%`;
+                document.body.appendChild(sparkle);
+            }
+        }
+        createSparkles();
+    </script>
+
+    <!-- Falling Flowers -->
+    <script>
+        function createFlowers() {
+            const flowers = 50;
+            for (let i = 0; i < flowers; i++) {
+                const flower = document.createElement('div');
+                flower.className = 'flower';
+                flower.style.top = `${Math.random() * 100}%`;
+                flower.style.left = `${Math.random() * 100}%`;
+                document.body.appendChild(flower);
+            }
+        }
+        createFlowers();
+    </script>
 
     <!-- Falling Leaves -->
-    <div class="leaf" style="left: 12%;"></div>
-    <div class="leaf" style="left: 32%;"></div>
-    <div class="leaf" style="left: 52%;"></div>
-    <!-- Add more leaves as needed -->
+    <script>
+        function createLeaves() {
+            const leaves = 50;
+            for (let i = 0; i < leaves; i++) {
+                const leaf = document.createElement('div');
+                leaf.className = 'leaf';
+                leaf.style.top = `${Math.random() * 100}%`;
+                leaf.style.left = `${Math.random() * 100}%`;
+                document.body.appendChild(leaf);
+            }
+        }
+        createLeaves();
+    </script>
 
     <!-- Heart Symbols -->
     <div class="heart" style="top: 10%; left: 20%;">❤️</div>
@@ -137,16 +170,5 @@
     <div class="love-names">
         Satish<br>❤️<br>Naveena
     </div>
-
-    <!-- Background Sparkles -->
-    <script>
-        function createSparkles() {
-            const sparkles = 200;
-            const sparkleContainer = document.createElement('div');
-            sparkleContainer.style.position = 'absolute';
-            sparkleContainer.style.width = '100%';
-            sparkleContainer.style.height = '100%';
-            sparkleContainer.style.pointerEvents = 'none';
-            document.body.appendChild(sparkleContainer);
-            
-            for (let i = 0;
+</body>
+</html>
