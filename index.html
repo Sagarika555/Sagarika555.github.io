@@ -13,16 +13,17 @@
         }
 
         .love-names {
-            font-size: 24px;
+            font-size: 36px; /* Increased font size for names */
             font-weight: bold;
             text-align: center;
             color: white;
             text-shadow: 2px 2px 4px black; /* Shadow for text */
+            animation: rotateNames 5s linear infinite; /* Rotate animation for names */
         }
 
         .heart {
-            position: absolute;
-            animation: blink 1s infinite alternate;
+            font-size: 60px; /* Increased font size for hearts */
+            animation: blink 1s infinite alternate; /* Blink animation for hearts */
         }
 
         @keyframes blink {
@@ -33,16 +34,25 @@
                 opacity: 1;
             }
         }
+
+        @keyframes rotateNames {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
     </style>
 </head>
 <body>
+    <!-- Heart Symbols -->
+    <div class="heart" style="position: absolute; top: 10%; left: 20%;">❤️</div>
+    <div class="heart" style="position: absolute; top: 20%; left: 50%;">❤️</div>
+    <div class="heart" style="position: absolute; top: 30%; left: 80%;">❤️</div>
+    <!-- Love Names -->
     <div class="love-names">
         Satish & Naveena
     </div>
-    <!-- Heart Symbols -->
-    <div class="heart" style="top: 10%; left: 20%;">❤️</div>
-    <div class="heart" style="top: 20%; left: 50%;">❤️</div>
-    <div class="heart" style="top: 30%; left: 80%;">❤️</div>
-    <!-- Add more hearts as needed -->
 </body>
 </html>
