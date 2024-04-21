@@ -20,39 +20,48 @@
             color: white;
             text-shadow: 4px 4px 8px black; /* Shadow for text */
             animation: rotateNames 5s linear infinite; /* Rotate animation for names */
-            position: relative; /* Relative positioning for sparkles and flowers */
+            position: relative; /* Relative positioning for roses and sparkles */
         }
 
         .heart {
             font-size: 100px; /* Increased font size for hearts */
-            animation: blink 1s infinite alternate; /* Blink animation for hearts */
+            animation: beatHeart 1s infinite alternate; /* Heartbeat animation for hearts */
             position: absolute; /* Absolute positioning for hearts */
             opacity: 0.7; /* Reduced opacity for a softer look */
         }
 
         .sparkle {
             position: absolute; /* Absolute positioning for sparkles */
-            width: 2px;
-            height: 2px;
+            width: 4px;
+            height: 4px;
             background-color: #fff; /* Sparkle color */
-            animation: sparkleBlink 1s infinite; /* Sparkle animation */
+            animation: sparkleShine 1s infinite; /* Sparkle animation */
         }
 
         .rose {
             position: absolute; /* Absolute positioning for roses */
-            width: 20px;
-            height: 20px;
+            width: 30px;
+            height: 30px;
             background-color: #ff69b4; /* Rose color */
-            animation: roseFall 3s infinite; /* Rose animation */
+            animation: roseFall 5s linear infinite, roseRotate 3s linear infinite; /* Rose animations */
             border-radius: 50%; /* Rounded shape for roses */
         }
 
-        @keyframes blink {
+        .leaf {
+            position: absolute; /* Absolute positioning for leaves */
+            width: 15px;
+            height: 15px;
+            background-color: #4CAF50; /* Leaf color */
+            transform: rotate(45deg); /* Rotate leaves */
+            animation: leafFall 5s linear infinite; /* Leaf animation */
+        }
+
+        @keyframes beatHeart {
             0%, 100% {
-                opacity: 0.7;
+                transform: scale(1);
             }
             50% {
-                opacity: 1;
+                transform: scale(1.1);
             }
         }
 
@@ -65,7 +74,7 @@
             }
         }
 
-        @keyframes sparkleBlink {
+        @keyframes sparkleShine {
             0% {
                 opacity: 0;
             }
@@ -84,21 +93,40 @@
                 left: 50%;
             }
         }
+
+        @keyframes roseRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes leafFall {
+            0% {
+                top: -10%;
+                left: 50%;
+            }
+            100% {
+                top: 110%;
+                left: 50%;
+            }
+        }
     </style>
 </head>
 <body>
-    <!-- Background Sparkles -->
-    <div class="sparkle" style="top: 5%; left: 5%;"></div>
-    <div class="sparkle" style="top: 15%; left: 15%;"></div>
-    <div class="sparkle" style="top: 25%; left: 25%;"></div>
-    <!-- Add more sparkles as needed -->
-
-    <!-- Falling Roses -->
+    <!-- Falling Roses with Leaves -->
     <div class="rose" style="left: 10%;"></div>
     <div class="rose" style="left: 30%;"></div>
     <div class="rose" style="left: 50%;"></div>
-    <div class="rose" style="left: 70%;"></div>
-    <div class="rose" style="left: 90%;"></div>
+    <!-- Add more roses as needed -->
+
+    <!-- Falling Leaves -->
+    <div class="leaf" style="left: 12%;"></div>
+    <div class="leaf" style="left: 32%;"></div>
+    <div class="leaf" style="left: 52%;"></div>
+    <!-- Add more leaves as needed -->
 
     <!-- Heart Symbols -->
     <div class="heart" style="top: 10%; left: 20%;">❤️</div>
@@ -109,5 +137,16 @@
     <div class="love-names">
         Satish<br>❤️<br>Naveena
     </div>
-</body>
-</html>
+
+    <!-- Background Sparkles -->
+    <script>
+        function createSparkles() {
+            const sparkles = 200;
+            const sparkleContainer = document.createElement('div');
+            sparkleContainer.style.position = 'absolute';
+            sparkleContainer.style.width = '100%';
+            sparkleContainer.style.height = '100%';
+            sparkleContainer.style.pointerEvents = 'none';
+            document.body.appendChild(sparkleContainer);
+            
+            for (let i = 0;
